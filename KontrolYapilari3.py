@@ -43,3 +43,5 @@
 liste = ["Hava","Kapalı","Ama","Akalım","Arabaya"]
 for item in liste:
     print(item)
+
+asdlaksdşslkdş
