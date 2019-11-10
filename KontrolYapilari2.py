@@ -29,8 +29,8 @@ if 2 in liste:
 #     print("Doğru")
 
 
-# Hayat = "acı"
-# Biber = "acı"
+Hayat = "acı"
+Biber = "acı"
 
-# if Hayat is Biber:
-#     print("Hayat Biberdir")
+if Hayat is Biber:
+    print("Hayat Biberdir")
