@@ -37,7 +37,7 @@ while anahtar == 1:
         adi = input("Adınız:")
         kayit = "{};{};{}\n".format(adi,"aa","123")
         liste[sira-1] = kayit
-    elif islem == "4":
+    elif islem == "5":
         anahtar =0
 else:
     dosya.seek(0)
