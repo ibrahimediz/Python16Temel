@@ -34,3 +34,6 @@ Biber = "acı"
 
 if Hayat is Biber:
     print("Hayat Biberdir")
+
+
+
