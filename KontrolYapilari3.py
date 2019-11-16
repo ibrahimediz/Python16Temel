@@ -1,6 +1,5 @@
-# for i in range(0,20):
+# for i in range(0,5):
 #     print(i)
-
 
 
 # for i in range(0,50,2):
@@ -45,7 +44,7 @@ for i in range(0,basamak):
 # for item in liste:
 #     print(item)
 
-# 
+# metin = "Tripanazomigambiyetsiz"
 # for item in metin:
 #     print(item)
 
@@ -59,20 +58,21 @@ sozluk =  {"1":"Bir","2":"İki","3":"üç"}
 # for item in sozluk.keys():
 #     print(item)
 # print(sozluk.items())
-# for key,value in sozluk.items():
-#     print(key,value)
 
-import random
-kolon = int(input("Kaç Kolon Oynamak İstersin"))
-for i in range(0,kolon):
-    liste = []
-    for i in range(0,6):
-        sayi = random.randint(1,49)
-        while sayi in liste:
-            sayi = random.randint(1,49)
-        liste.append(sayi)
-    liste.sort()
-    print(liste)
+for key,value in sozluk.items():
+    print(key,value)
+
+# import random
+# kolon = int(input("Kaç Kolon Oynamak İstersin"))
+# for i in range(0,kolon):
+#     liste = []
+#     for i in range(0,6):
+#         sayi = random.randint(1,49)
+#         while sayi in liste:
+#             sayi = random.randint(1,49)
+#         liste.append(sayi)
+#     liste.sort()
+#     print(liste)
 
 # sayi = input("Sayıyı Giriniz")
 # sayi = int(sayi)

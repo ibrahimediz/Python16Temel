@@ -40,32 +40,34 @@ basamak = {
     5:" Katrilyon",
 }
 
+while True:
+    sayi = input("Sayıyı Giriniz").replace(",","").replace(".","")
+    if sayi == "e":
+        break
+    sayi = str(int(sayi))
+    while len(sayi)%3!=0:
+        sayi = "0" + sayi
+    """
+    009852852
 
-sayi = input("Sayıyı Giriniz").replace(",","").replace(".","")
-sayi = str(int(sayi))
-while len(sayi)%3!=0:
-    sayi = "0" + sayi
-"""
-009852852
-
-"""
-liste = []
-for i in range(0,int(len(sayi)/3)):
-    liste.append(sayi[(i*3):(i*3)+3])
-print(liste)
-liste.reverse()
-tumSonuc = ""
-adim = 0
-for item in liste:
-    sonuc = ""
-    if item != "000":
-        if item[0] != "0":
-            if item[0] != "1":
-                sonuc = birler[item[0]] +" Yüz "
-            else:
-                sonuc = "Yüz"
-        sonuc += onlar[item[1]] + birler[item[2]] 
-        sonuc += basamak[adim]
-    adim+= 1
-    tumSonuc = sonuc + tumSonuc
-print(tumSonuc)
+    """
+    liste = []
+    for i in range(0,int(len(sayi)/3)):
+        liste.append(sayi[(i*3):(i*3)+3])
+    print(liste)
+    liste.reverse()
+    tumSonuc = ""
+    adim = 0
+    for item in liste:
+        sonuc = ""
+        if item != "000":
+            if item[0] != "0":
+                if item[0] != "1":
+                    sonuc = birler[item[0]] +" Yüz "
+                else:
+                    sonuc = "Yüz"
+            sonuc += onlar[item[1]] + birler[item[2]] 
+            sonuc += basamak[adim]
+        adim+= 1
+        tumSonuc = sonuc + tumSonuc
+    print(tumSonuc)
