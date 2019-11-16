@@ -40,6 +40,7 @@ basamak = {
     5:" Katrilyon",
 }
 
+
 while True:
     sayi = input("Sayıyı Giriniz").replace(",","").replace(".","")
     if sayi == "e":
