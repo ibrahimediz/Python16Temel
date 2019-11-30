@@ -7,50 +7,71 @@ def table(liste):
         print("|       "*4)
     print("+-------"*3,"+",sep="")
 
+def kimKazandi(k):
+    if liste[k] == "X":
+        print("Bilgisayar Kazandı")
+    else:
+        print("Kazandınız")
+
+def Kontrol(liste):
+    if (liste[0] == liste[4] == liste[8]):
+        kimKazandi(0)
+        return False
+    if (liste[2] == liste[4] == liste[6]):
+        kimKazandi(2)
+        return False
+    for k in range(0,3):
+        if liste[k] == liste[k+3] == liste[k+6]:
+            kimKazandi(k)
+            return False
+        if liste[k] == liste[k+1] == liste[k+2]:
+            kimKazandi(k)
+            return False
+    return True
+    
+    
+        
+        
+    
 
 def Comp(liste):
     import random as rnd
-    secim = rnd.choice(liste)
-    while liste[secim-1] in ("O","X"):
-        secim = rnd.choice(liste)
+    secim = rnd.randint(1,9)
+    while str(liste[secim-1]) in ("O","X"):
+        secim = rnd.randint(1,9)
     else:
         liste[secim-1] = "X"
-    table(liste)
+ 
 
 
 def User(liste):
     user = int(input("Seçim Yap"))
-    while liste[user-1] in ("O","X"):
+    while str(liste[user-1]) in ("O","X"):
         user = int(input("Yeni bir yer seçimi Yap"))
     else:
         liste[user-1] = "O"
-    table(liste)
-liste =[i for i in range(1,10)]
 
+
+liste =[i for i in range(1,10)]
 while True:
     table(liste)
     Comp(liste)
+    if not Kontrol(liste):
+        break
     User(liste)
+    if not Kontrol(liste):
+        break
 
 
-0,4,8
-2,4,6
-for k in range(0,3):
-    if liste[k] == liste[k+3] == liste[k+6]:
-            break
-    for i in range(k,9,3):
-        if liste[i] == liste[i+1] == liste[i+2]:
-            break
     
 
 
-0,1,2
-3,4,5
-6,7,8
 
-0,3,6
-1,4,7
-2,5,8
+
+
+
+
+
 
 # sozluk = {i:str(i+1) for i in range(0,9)}
 # def yansit(sozluk):
