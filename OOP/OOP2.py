@@ -13,8 +13,16 @@ class MarvelHero:
     def Vurus(self):
         return self.guc
 
+    def Durum(self):
+        return "Durum:Adı:{}-Sağlık:{}".format(self.adi,self.saglik)
+
+    @classmethod
+    def HeroList(cls):
+        print(*cls.heroList,sep="\n")
+
+
     def __del__(self):  #DECONSTRUCTOR
-        print("Hastala Vista Baby")
+        print(self.adi,"Hastala Vista Baby")
     
 class Deadpool(MarvelHero):
     def __init__(self):
@@ -23,12 +31,20 @@ class Deadpool(MarvelHero):
     def DarbeAl(self,guc):
         self.saglik -= guc//2
 
-    
+class Hulk(MarvelHero):
+    def __init__(self):
+        super().__init__("Hulk",2000,100)
+
+    def Vurus(self):
+        return self.guc*2
+
+class IronMan(MarvelHero):
+    def __init__(self):
+        super().__init__("IronMan",1000,100)
+
+class KaraMurat(MarvelHero):
+    def __init__(self):
+        super().__init__("KaraMurat",3000,100)  
     
 
 
-P1 = Deadpool()
-P2 = MarvelHero("Hulk",2000,100)
-print(P2.saglik)
-P1.DarbeAl(P2.Vurus())
-print(P1.saglik)
