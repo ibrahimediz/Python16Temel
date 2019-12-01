@@ -5,9 +5,11 @@ liste = [Deadpool,Hulk,IronMan,KaraMurat]
 
 p1 = choice(liste)()
 p2 = choice(liste)()
+
+
 while p1.saglik >0 and p2.saglik >0:
-    p1.DarbeAl(p2.Vurus())
-    p2.DarbeAl(p1.Vurus())
+    p1.haraketSec()(p2.haraketSec2()())
+    p2.haraketSec()(p1.haraketSec2()())
     print("{}-{}".format(p1.Durum(),p2.Durum()))
     time.sleep(1)
 else:
