@@ -53,6 +53,11 @@ class Sekil:
     def Tanim(self,text):
         self.tanim = text
 
+    @classmethod
+    def tipDegistir(cls,param):
+        cls.tip = param
+
+
 kare = Sekil(20,20)
 # kare.Tanim("KARE")
 # print(kare.tanim)
@@ -68,6 +73,8 @@ print("dikdörtgen.x",dikdörtgen.x)
 
 print("kare.tip",kare.tip)
 print("dikdörtgen.tip",dikdörtgen.tip)
-kare.tip = "Herhangi bir şekil"
+kare.tipDegistir("Herhangi")
+dikdörtgen.tipDegistir("deneme")
+Sekil.tipDegistir("Herhangi 2")
 print("kare.tip",kare.tip)
 print("dikdörtgen.tip",dikdörtgen.tip)
