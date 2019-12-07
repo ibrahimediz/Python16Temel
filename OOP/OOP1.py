@@ -45,12 +45,24 @@ ornek2 = Sınıf() #instance
 
 class Sekil:
     tip = "Çokgen" #Sınıf Nitelik
+    __gizli = "çok gizli"
     def __init__(self,x=5,y=5):
         self.x = x
         self.y = y # Örnek Nitelik
         self.tanim = "Bu şekil henüz tanımlanmadı"
         self.sahip = "Henüz sahip yok"
+        self.__degisken = ""
     
+    def gizliGetter(self):
+        return Sekil.__gizli
+
+    def gizliSetter(self,param=""):
+        if param.isdigit():
+            Sekil.__gizli = param
+        else:
+            print("Değişmez")
+
+
     def alan(self):
         return self.x*self.y
 
@@ -58,8 +70,9 @@ class Sekil:
         self.x = self.x*oran
         self.y = self.y*oran
 
-    def tipDegistir(self,param):
-        self.tip = param    
+    def __del__(self):
+        print("Hastala Vista")
+
    
     @classmethod
     def tipDegistir(cls,param):
@@ -67,20 +80,15 @@ class Sekil:
 
 
 
+# kare = Sekil(20,20)
 
-kare = Sekil(20,20)
+# # kare.Tanim("KARE")
+# # print(kare.tanim)
 
-# kare.Tanim("KARE")
-# print(kare.tanim)
+# # dikdörtgen.Tanim("DİKDÖRTGEN")
+# # print(dikdörtgen.tanim)
 
-# dikdörtgen.Tanim("DİKDÖRTGEN")
-# print(dikdörtgen.tanim)
-kare = Sekil(20,20)
-dikdörtgen = Sekil(20,30)
-print(kare.tip)
-Sekil.tipDegistir("Vektorel")
-print(kare.tip)
-print(dikdörtgen.tip)
-kare.tipDegistir("deneme")
-print(kare.tip)
-print(dikdörtgen.tip)
+# kare = Sekil(20,20)
+# print(kare.x)
+# dikdörtgen = Sekil(20,30)
+
