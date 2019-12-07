@@ -18,16 +18,24 @@
 #         self.adi = "Chawe"
 
 ################################################
-class Sınıf():
+class Sınıf:
     sinif_degiskeni = 2 #class attribute
     def __init__(self):
         self.ornek_nitelik = 1 #instance attribute
     def ornek_metod(self): #instance method
+        return self.ornek_nitelik
+    def __del__(self):
         pass
+
+    @classmethod
+    def sinif_metod(cls):
+        return cls.sinif_degiskeni
+
 
 ornek = Sınıf() # instance
 ornek2 = Sınıf() #instance
 ##################################################
+
 
 
 # 1. Encapsulation (Kapsülleme)
@@ -37,7 +45,7 @@ ornek2 = Sınıf() #instance
 
 class Sekil:
     tip = "Çokgen" #Sınıf Nitelik
-    def __init__(self,x,y):
+    def __init__(self,x=5,y=5):
         self.x = x
         self.y = y # Örnek Nitelik
         self.tanim = "Bu şekil henüz tanımlanmadı"
@@ -50,31 +58,29 @@ class Sekil:
         self.x = self.x*oran
         self.y = self.y*oran
 
-    def Tanim(self,text):
-        self.tanim = text
-
+    def tipDegistir(self,param):
+        self.tip = param    
+   
     @classmethod
     def tipDegistir(cls,param):
         cls.tip = param
 
 
+
+
 kare = Sekil(20,20)
+
 # kare.Tanim("KARE")
 # print(kare.tanim)
-dikdörtgen = Sekil(20,30)
+
 # dikdörtgen.Tanim("DİKDÖRTGEN")
 # print(dikdörtgen.tanim)
-print("kare.x",kare.x)
-print("dikdörtgen.x",dikdörtgen.x)
-kare.x = 30
-print("kare.x",kare.x)
-print("dikdörtgen.x",dikdörtgen.x)
-
-
-print("kare.tip",kare.tip)
-print("dikdörtgen.tip",dikdörtgen.tip)
-kare.tipDegistir("Herhangi")
-dikdörtgen.tipDegistir("deneme")
-Sekil.tipDegistir("Herhangi 2")
-print("kare.tip",kare.tip)
-print("dikdörtgen.tip",dikdörtgen.tip)
+kare = Sekil(20,20)
+dikdörtgen = Sekil(20,30)
+print(kare.tip)
+Sekil.tipDegistir("Vektorel")
+print(kare.tip)
+print(dikdörtgen.tip)
+kare.tipDegistir("deneme")
+print(kare.tip)
+print(dikdörtgen.tip)
