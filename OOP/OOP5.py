@@ -61,8 +61,6 @@
 #     dosya.writelines(liste)
 #     dosya.close()
 
-
-
 # def KayitDuzenle(adres,**kwargs):
 #     dosya = dosyaAc(adres)
 #     liste = dosya.readlines()
@@ -135,6 +133,37 @@ class DosyaTool:
         self.dosya = None
         self.dosyaAc()
     
+    # @classmethod
+    # def dosyaUzanti(cls):
+    #     return cls.__dosyaUzanti
+    @property
+    def dosyaUzanti(self):
+        self.deneme = None
+        return DosyaTool.__dosyaUzanti
+
+    @dosyaUzanti.setter
+    def dosyaUzanti(self,param=""):
+        try:
+            if param.startswith("."):
+                if param[1:].isalpha():
+                    DosyaTool.__dosyaUzanti = param
+                else:
+                    raise ValueError
+            else:
+                raise ValueError
+        except ValueError:
+            print("Değer hatası dosya uzantısını kontrol edin")
+
+
+
+
+
+
+
+    # @dosyaUzanti.setter
+    # def dosyaUzanti(self,param):
+
+    
 
     def dosyaAc(self):
         if os.path.exists(self.adres):
@@ -142,7 +171,7 @@ class DosyaTool:
         else:
             dosya = open(self.adres,"w+",encoding="UTF-8")
         self.dosya = dosya
-        self.kayitlar =  self.dosya.readlines()
+        
 
 
     def KayitEkle(self):
@@ -157,10 +186,14 @@ class DosyaTool:
         kayit = kayit.rstrip(";")+"\n"
         return kayit
 
+    def kayitYaz(self,item):
+        self.dosyaAc()
+        self.kayitlar = self.dosya.readlines()
+        self.dosya.write(item)
+        self.dosya.flush()
+
+
     def __del__(self):
-        self.dosya.seek(0)
-        self.dosya.truncate()
-        self.dosya.writelines(self.kayitlar)
         self.dosya.close()
 
     def KayitListele(self):
@@ -182,5 +215,4 @@ class DosyaTool:
         self.kayitlar.pop(sira-1)
 
 
-defter = DosyaTool("teldefter",ALANLAR=["ADI","SOYADI","TEL"])
-defter2 = DosyaTool("Banka",ALANLAR=["Hesap","TUR","TUTAR","BANKA"])
+
